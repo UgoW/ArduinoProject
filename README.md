@@ -72,12 +72,17 @@ Le jeu nécessite un écran LCD, deux boutons poussoirs (pour le démarrage et l
 
 ```
 
-## Installation
+## Installation 
+**(pour arduino ISEN )**
 Téléchargez ou clonez ce dépôt sur votre ordinateur.
-Ouvrez le fichier "game.ino" avec l'IDE Arduino.
+Ouvrez le fichier "main.ino" avec l'IDE Arduino.
 Branchez votre carte Arduino Uno à votre ordinateur à l'aide d'un câble USB.
 Sélectionnez votre carte et votre port série dans l'IDE Arduino.
 Chargez le programme sur votre carte en appuyant sur le bouton de téléversement.
+
+**(pour TinkerCad)**
+cliquez sur le lien ci-dessous et appuyez sur le bouton exécuter :
+https://www.tinkercad.com/things/1UUB4SSItl8-funky-borwo-gogo/editel?sharecode=6CnM6zIBYp1tHd6qXAxLXkK48P-F6YMn9UCKzqPeR-E
 
 ## Auteur
 Ce projet a été créé par *TOM LORIDANT*, *DAMIA CLAUS*, *ANATOLE NOWOCZYN* et UGO WAREMBOURG dans le cadre d'un projet scolaire ou personnel.
