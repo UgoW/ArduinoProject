@@ -483,7 +483,6 @@ void loop() {
     
     // Affiche le score deux fois
     Score();
-    Score();
     
     // Change la vitesse de défilement du fond
     changeSpeed();
