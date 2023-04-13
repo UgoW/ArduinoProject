@@ -247,9 +247,8 @@ void landscape(){
 // Fonction pour créer une taille aléatoire
 int randomSize() {
 
-  randomSeed(analogRead(0)); // générer une nouvelle seed aléatoire à chaque fois
-  return random(2,6); // Calculer un nombre aléatoire entre 20 et 35
-  // Serial.println(randomCycleObstacle); <- Afficher le nombre aléatoire dans la console série
+  randomSeed(analogRead(0)); // Generation d'une nouvelle seed aléatoire à chaque fois
+  return random(2, 6); // Renvoie un nombre aléatoire entre 2 et 6
 
 }
 
@@ -262,7 +261,7 @@ void checkDeath() {
     Serial.println("You're dead"); // Afficher "You're dead" dans la console série
     onDeathScreen = true; // Passer en mode "écran de mort"
     lcd.clear(); // Effacer l'écran LCD
-	numCharTitle = 0;
+    numCharTitle = 0; // Remet à l'etat 0 les caractères autour du titre
   }
 
 }
@@ -407,6 +406,32 @@ void deathScreen() {
     lcd.clear();
 }
 
+void gameBeginScreen() {
+	lcd.clear();
+
+	lcd.setCursor(0,0);
+	lcd.print("X   START IN   X");
+	lcd.setCursor(0,1);
+	lcd.print("X              X");
+
+	lcd.setCursor(7,1);
+	lcd.print("03");
+
+	delay(1000);
+
+	lcd.setCursor(7,1);
+	lcd.print("02");
+
+	delay(1000);
+
+	lcd.setCursor(7,1);
+	lcd.print("01");
+
+	delay(1000);
+
+	justBegin = false;
+}
+
 
 // Fonction d'initialisation du jeu
 void setup() {
@@ -450,34 +475,12 @@ void loop() {
   else {
     
     // Si le jeu vient de commencer, affiche un compte à rebours
-    if(justBegin) {
-      lcd.clear();
-      
-      lcd.setCursor(0,0);
-      lcd.print("X   START IN   X");
-      lcd.setCursor(0,1);
-      lcd.print("X              X");
-
-      lcd.setCursor(7,1);
-      lcd.print("03");
-
-      delay(1000);
-
-      lcd.setCursor(7,1);
-      lcd.print("02");
-
-      delay(1000);
-
-      lcd.setCursor(7,1);
-      lcd.print("01");
-
-      delay(1000);
-      
-      justBegin = false;
-    }
+    if(justBegin) 
+			gameBeginScreen();
 
     // Efface l'écran LCD et dessine le personnage et le fond
     lcd.clear();
+		
     drawCharacter();
     drawBackground();
     
