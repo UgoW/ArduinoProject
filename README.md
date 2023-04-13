@@ -20,7 +20,8 @@ Le jeu est contrôlé à l'aide des boutons de jeu suivants :
 
 ## Schéma de câblage
 Le jeu nécessite un écran LCD, deux boutons poussoirs (pour le démarrage et le saut) et un potentiomètre pour ajuster le contraste de l'écran. Le schéma de câblage est le suivant :
-
+ 
+**Pour Tinkercad :**
 ``` diff
 
 # Ecran LCD :
@@ -43,6 +44,32 @@ Le jeu nécessite un écran LCD, deux boutons poussoirs (pour le démarrage et l
 - Broche : 2
 - Résistance : 10kOhm
 - GND
+```
+**Pour Carte Arduino ISEN** :
+
+``` diff
+
+# Ecran LCD :
+- RS : broche 15
+- E : broche 14
+- D4 : broche 4
+- D5 : broche 5
+- D6 : broche 6
+- D7 : broche 7
+- VSS : GND
+- VDD : 5V
+- V0 : potentiomètre
+
+# Bouton de lecture :
+- Broche : 3
+- Résistance : 10kOhm
+- GND
+
+# Bouton de saut :
+- Broche : ?
+- Résistance : ?
+- GND
+
 ```
 
 ## Installation
