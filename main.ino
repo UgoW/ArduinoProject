@@ -92,6 +92,7 @@ byte walk2[8] = {
 #define PLAY_BUTTON 3
 #define JUMP_BUTTON 2
 #define POT A3
+#define LED_JUMP 8
 int FPS = 5;
 char charTitle[] = "-|OX"; // Caractère s'affichant à cote du titre
 int numCharTitle = 0; // Nombre choisissant le caractere a cote du titre
@@ -339,6 +340,19 @@ void start() {
   lcd.clear();
 }
 
+// Gère l'allumage de la LED pour savoir quand sauter
+void ledJump() { 
+  // Si l'obstacle est entre 5 et 7 blos de distance du personnage
+  if(obstacle.leftPos >= 1 + 4 && obstacle.leftPos <= 1 + 6) {
+    digitalWrite(LED_JUMP, HIGH);
+    Serial.println("Hi");
+  }
+  
+  else {
+    digitalWrite(LED_JUMP, LOW);
+  }
+}
+
 // Cette fonction affiche un écran de menu sur l'écran LCD
 void menuScreen() {
   lcd.clear(); // Efface l'écran LCD
@@ -487,6 +501,9 @@ void loop() {
     // Affiche le score deux fois
     Score();
     
+    // Allume ou éteint la LED de saut
+    ledJump();
+    
     // Change la vitesse de défilement du fond
     changeSpeed();
     
@@ -499,4 +516,3 @@ void loop() {
   }
   
 }
-
