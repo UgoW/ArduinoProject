@@ -253,6 +253,14 @@ int randomSize() {
 
 }
 
+// Fonction pour gérer un timing d'apparition d'obstacle aléatoire
+int randomSpawnTime() {
+
+  randomSeed(analogRead(0)); // Generation d'une nouvelle seed aléatoire à chaque fois
+  return random(16, 27); // Renvoie un nombre aléatoire entre 16 et 23
+
+}
+
 // Fonction pour vérifier si le personnage est mort
 void checkDeath() {  
 
@@ -275,7 +283,7 @@ void drawBackground() {
   // Si l'obstacle de gauche sort de l'écran
   if(obstacle.leftPos < -obstacle.obsSize) {
 	obstacle.obsSize = randomSize();
-    obstacle.leftPos = 20;
+    obstacle.leftPos = randomSpawnTime();
   }
   
   landscape(); // Afficher les obstacles à l'écran
@@ -490,7 +498,7 @@ void loop() {
     
     // Si le jeu vient de commencer, affiche un compte à rebours
     if(justBegin) 
-			gameBeginScreen();
+	gameBeginScreen();
 
     // Efface l'écran LCD et dessine le personnage et le fond
     lcd.clear();
@@ -510,8 +518,11 @@ void loop() {
     // Vérifie si le personnage est mort
     checkDeath();
     
+    // Jeu qui s'accélère au fur et à mesure
+    int accel = score * 15;
+    
     // Limite le taux de rafraîchissement de l'écran à FPS images par seconde
-    delay((int)(1000 / FPS)); 
+    delay((int)(1000 / FPS) - accel); 
 
   }
   
