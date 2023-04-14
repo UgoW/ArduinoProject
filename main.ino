@@ -98,7 +98,7 @@ char charTitle[] = "-|OX"; // Caractère s'affichant à cote du titre
 int numCharTitle = 0; // Nombre choisissant le caractere a cote du titre
 
 // Créer un objet LiquidCrystal avec les broches 13, 12, 11, 10, 7 et 6 pour l'écran LCD
-LiquidCrystal lcd(13, 12, 11, 10, 7, 6);
+LiquidCrystal lcd(15, 14, 4, 5, 6, 7);
 
 // Structures de données pour le personnage et l'obstacle
 struct character {
